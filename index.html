@@ -1,50 +1,36 @@
-<div style="margin: 16px 32px">
-  <h3>Flights from Bengaluru to Amsterdam</h3>
-
-  <ul id="flights"></ul>
-
-  <div style="display: flex">
-    <!-- 1 stop -->
-    <input type="checkbox" id="stops-1" style="margin-right: 8px" />
-    <label for="stops-1" onclick="toggleStop('one')">1 stop</label>
-
-    <!-- 2 stops -->
-    <input type="checkbox" id="stops-2" style="margin-left: 16px; margin-right: 8px" />
-    <label for="stops-2" onclick="toggleStop('two')">2 stops</label>
-  </div>
-</div>
-
-<script>
-  let flights = [
-    { airline: "Air India", stops: 0 },
-    { airline: "SriLankan Airlines", stops: 2 },
-    { airline: "British Airways", stops: 1 },
-    { airline: "Etihad Airways", stops: 1 },
-    { airline: "Thai Airways", stops: 2 },
-    { airline: "Singapore Air", stops: 2 },
-    { airline: "Air France", stops: 2 },
-    { airline: "Qatar Airways", stops: 1 },
-    { airline: "Lufthansa", stops: 1 },
-  ]
-
-  // Event Handling
-  let selectedStops = { one: false, two: false };
-
-  let toggleStop = (key) => {
-    selectedStops[key] = !selectedStops[key];
-    render();
-  };
-
-  // View
-  let createListItem = (item) => "<li>" + item.airline + "</li>";
-
-  let htmlView = (items) => items.map(createListItem).join("\n");
-
-  let render = () => {
-    let view = htmlView(flights);
-
-    document.getElementById("flights").innerHTML = view;
-  };
-
-  render();
-</script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>REGISTRATION FORM</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <h1 align="center">Registration Form </h1>
+    <form id="registration_form">
+      <label for="name" >Name:</label>
+      <input type="text" id="name" name="name" required placeholder="Enter your name"/>
+      <label for="email" >Email:</label>
+      <input type="email" id="email" name="email" required placeholder="Enter Valid email" />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required placeholder="Enter Password" />
+      <label for="dob">Date of birth:</label>
+      <input type="date" id="dob" name="dob" required placeholder="Enter DOB"/>
+      <label for="terms">
+        <input type="checkbox" id="terms" name="terms" />
+        Accept terms and conditions:
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+    <table id="user-table">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+        <th>Dob</th>
+        <th>Accepted terms?</th>
+      </tr>
+    </table>
+    <script src="index.js"></script>
+  </body>
+</html>
